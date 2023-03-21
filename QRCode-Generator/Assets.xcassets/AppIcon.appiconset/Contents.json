@@ -1,51 +1,61 @@
 {
   "images" : [
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy 6.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy 5.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy 4.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy 2.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder copy 3.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "28b9f91ee88af643f40d1988cb57c322_QR_Encoder 2.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
