@@ -39,6 +39,7 @@ class QRCodeGenerator: ObservableObject {
         isSuccess = false
 
         guard content.isValidURL else {
+            lastValidURL = nil
             return NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: nil) ?? NSImage()
         }
 
