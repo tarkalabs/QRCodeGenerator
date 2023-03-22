@@ -1,6 +1,8 @@
 # QRCodeGenerator
 Menu application for macOS that generates a QR code for any URL in the pasteboard.
 
+https://user-images.githubusercontent.com/16992520/226909401-cf103d81-6136-49a1-bceb-4c7c4194c707.mp4
+
 ## Technologies Used:
 1. AppKit / Cocoa
 2. CoreImage
