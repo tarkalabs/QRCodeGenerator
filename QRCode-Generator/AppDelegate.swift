@@ -11,7 +11,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     var popover = NSPopover()
-    let qrCodeViewModel = QRCodeViewModel()
+    let qrCodeViewModel = QRCodeGenerator()
 
     var timer: Timer?
     var menu: NSMenu!

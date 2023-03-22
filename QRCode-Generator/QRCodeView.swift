@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QRCodeView: View {
-    @ObservedObject var viewModel: QRCodeViewModel
+    @ObservedObject var viewModel: QRCodeGenerator
 
     var body: some View {
         VStack {

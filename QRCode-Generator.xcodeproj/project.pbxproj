@@ -10,7 +10,7 @@
 		ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */; };
 		ED42847229C9CC4F00AD8DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED42847129C9CC4F00AD8DCA /* Assets.xcassets */; };
 		ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */; };
-		ED42847F29C9CE4800AD8DCA /* QRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */; };
+		ED42847F29C9CE4800AD8DCA /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847E29C9CE4800AD8DCA /* QRCodeGenerator.swift */; };
 		ED42848129C9CE6200AD8DCA /* String+IsValidURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */; };
 		ED42848329C9CF8800AD8DCA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42848229C9CF8800AD8DCA /* main.swift */; };
 /* End PBXBuildFile section */
@@ -21,7 +21,7 @@
 		ED42847129C9CC4F00AD8DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED42847629C9CC4F00AD8DCA /* QRCode_Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRCode_Generator.entitlements; sourceTree = "<group>"; };
 		ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
-		ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewModel.swift; sourceTree = "<group>"; };
+		ED42847E29C9CE4800AD8DCA /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidURL.swift"; sourceTree = "<group>"; };
 		ED42848229C9CF8800AD8DCA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +60,7 @@
 				ED42848229C9CF8800AD8DCA /* main.swift */,
 				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
 				ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */,
-				ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */,
+				ED42847E29C9CE4800AD8DCA /* QRCodeGenerator.swift */,
 				ED42847129C9CC4F00AD8DCA /* Assets.xcassets */,
 				ED42847629C9CC4F00AD8DCA /* QRCode_Generator.entitlements */,
 			);
@@ -139,7 +139,7 @@
 				ED42848129C9CE6200AD8DCA /* String+IsValidURL.swift in Sources */,
 				ED42848329C9CF8800AD8DCA /* main.swift in Sources */,
 				ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */,
-				ED42847F29C9CE4800AD8DCA /* QRCodeViewModel.swift in Sources */,
+				ED42847F29C9CE4800AD8DCA /* QRCodeGenerator.swift in Sources */,
 				ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

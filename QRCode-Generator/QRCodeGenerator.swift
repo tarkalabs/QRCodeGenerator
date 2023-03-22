@@ -1,5 +1,5 @@
 //
-//  QRCodeViewModel.swift
+//  QRCodeGenerator.swift
 //  QRCode-Generator
 //
 //  Created by Ibrahim Hassan on 21/03/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 
-class QRCodeViewModel: ObservableObject {
+class QRCodeGenerator: ObservableObject {
     @Published var qrCodeImage: NSImage?
     var isSuccess = false
 
