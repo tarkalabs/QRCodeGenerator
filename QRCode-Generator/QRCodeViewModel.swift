@@ -11,15 +11,15 @@ import CoreImage.CIFilterBuiltins
 class QRCodeViewModel: ObservableObject {
     @Published var qrCodeImage: NSImage?
     var isSuccess = false
-    
+
     private let context = CIContext()
     private let filter = CIFilter.qrCodeGenerator()
     private var lastValidURL: String?
-    
+
     init() {
         refresh()
    }
-    
+
     func refresh() {
         let pasteBoardItems = NSPasteboard.general.pasteboardItems ?? []
         var urlString = ""
@@ -29,19 +29,19 @@ class QRCodeViewModel: ObservableObject {
                 urlString = string.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
-        
+
         if lastValidURL != urlString {
             qrCodeImage = getQRCodeImage(urlString)
         }
     }
-    
+
     private func getQRCodeImage(_ content: String) -> NSImage {
         isSuccess = false
 
         guard content.isValidURL else {
             return NSImage(systemSymbolName: "xmark.circle", accessibilityDescription: nil) ?? NSImage()
         }
-        
+
         lastValidURL = content
 
         let data = Data(content.utf8)

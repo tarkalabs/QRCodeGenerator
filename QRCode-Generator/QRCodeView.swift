@@ -18,8 +18,7 @@ struct QRCodeView: View {
                     .interpolation(.none)
                     .scaledToFit()
                     .padding()
-                
-                
+
                 if !viewModel.isSuccess {
                     Text("Please copy a valid URL")
                         .padding()
