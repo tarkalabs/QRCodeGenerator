@@ -21,7 +21,7 @@ struct QRCodeView: View {
                 
                 
                 if !viewModel.isSuccess {
-                    Text("Please select a valid URL")
+                    Text("Please copy a valid URL")
                         .padding()
                 }
             }
