@@ -27,7 +27,7 @@ class QRCodeGenerator {
 
         var tintColor = tintColor
 
-        let savedColor = configurationHelper.getSavedColor()
+        let savedColor = configurationHelper.getColor()
 
         if !savedColor.isEmpty && useConfig {
             tintColor = NSColor(fromHex: savedColor)
@@ -72,9 +72,5 @@ class QRCodeGenerator {
         }
 
         return nil
-    }
-    
-    private func getSavedSettings() {
-        
     }
 }

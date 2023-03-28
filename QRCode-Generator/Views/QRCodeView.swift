@@ -70,7 +70,7 @@ struct QRCodeView: View {
                         Text("Settings")
                     }
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.automatic)
                 .padding()
                 .sheet(isPresented: $showingSettings) {
                     ConfigurationView(showingSettings: $showingSettings)

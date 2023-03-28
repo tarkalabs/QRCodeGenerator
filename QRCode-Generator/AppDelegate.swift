@@ -9,12 +9,12 @@ import Cocoa
 import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var statusItem: NSStatusItem?
-    var popover = NSPopover()
+    private var statusItem: NSStatusItem?
+    private var popover = NSPopover()
+    private var timer: Timer?
+    private var menu: NSMenu!
+    
     let qrCodeViewModel = QRCodeViewModel()
-
-    var timer: Timer?
-    var menu: NSMenu!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setupMacMenu()
@@ -76,4 +76,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 }
-

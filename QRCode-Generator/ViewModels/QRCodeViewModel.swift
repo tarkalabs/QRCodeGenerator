@@ -25,6 +25,10 @@ class QRCodeViewModel: ObservableObject {
             qrCodeImageData = getQRCodeImage(urlString)
         }
     }
+    
+    func reset() {
+        lastValidURL = nil
+    }
 
     private func getQRCodeImage(_ content: String) -> Data? {
         isSuccess = false

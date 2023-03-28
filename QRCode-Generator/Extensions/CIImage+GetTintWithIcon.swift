@@ -10,18 +10,24 @@ import Cocoa
 
 extension CIImage {
     private var transparent: CIImage? {
-        return inverted?.blackTransparent
+        inverted?.blackTransparent
     }
 
     private var inverted: CIImage? {
-        guard let invertedColorFilter = CIFilter(name: "CIColorInvert") else { return nil }
+        guard let invertedColorFilter = CIFilter(name: "CIColorInvert") else {
+            return nil
+        }
 
         invertedColorFilter.setValue(self, forKey: "inputImage")
+        
         return invertedColorFilter.outputImage
     }
     
     private var blackTransparent: CIImage? {
-        guard let blackTransparentFilter = CIFilter(name: "CIMaskToAlpha") else { return nil }
+        guard let blackTransparentFilter = CIFilter(name: "CIMaskToAlpha") else {
+            return nil
+        }
+        
         blackTransparentFilter.setValue(self, forKey: "inputImage")
         return blackTransparentFilter.outputImage
     }
@@ -47,10 +53,14 @@ extension CIImage {
     
     /// Add icon to center of QRCode.
     func combined(with image: CIImage) -> CIImage? {
-        guard let combinedFilter = CIFilter(name: "CISourceOverCompositing") else { return nil }
+        guard let combinedFilter = CIFilter(name: "CISourceOverCompositing") else {
+            return nil
+        }
+        
         let centerTransform = CGAffineTransform(translationX: extent.midX - (image.extent.size.width / 2), y: extent.midY - (image.extent.size.height / 2))
         combinedFilter.setValue(image.transformed(by: centerTransform), forKey: "inputImage")
         combinedFilter.setValue(self, forKey: "inputBackgroundImage")
+        
         return combinedFilter.outputImage!
     }
 }

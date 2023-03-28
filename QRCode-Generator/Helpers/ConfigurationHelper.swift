@@ -36,18 +36,6 @@ class ConfigurationHelper {
             print(error)
         }
     }
-
-    func saveIcon(_ data: Data?) {
-        guard let imagePath, let data else {
-            return
-        }
-        
-        do {
-            try data.write(to: imagePath)
-        } catch {
-            print (error)
-        }
-    }
     
     func getIconSize() -> NSSize {
         var iconSize = NSSize()
@@ -66,6 +54,18 @@ class ConfigurationHelper {
         return iconSize
     }
 
+    func saveIconData(_ data: Data?) {
+        guard let imagePath, let data else {
+            return
+        }
+        
+        do {
+            try data.write(to: imagePath)
+        } catch {
+            print (error)
+        }
+    }
+    
     func getIconData() -> Data {
         var iconData = Data()
         
@@ -94,7 +94,7 @@ class ConfigurationHelper {
         }
     }
 
-    func getSavedColor() -> String {
+    func getColor() -> String {
         var colorString = ""
         
         guard let colorPath else {

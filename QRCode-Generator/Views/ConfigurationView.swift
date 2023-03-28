@@ -16,23 +16,9 @@ struct ConfigurationView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-
-                Button(action: {
-                    showingSettings = false
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                })
-                .font(.title2)
-                .buttonStyle(.borderless)
-                .padding()
-            }
-
             GroupBox {
-                Text("Select Color for QR Code")
-                    .font(.subheadline)
-                    .padding()
+                Text("Color")
+                    .font(.title)
 
                 HStack {
                     RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
@@ -41,13 +27,12 @@ struct ConfigurationView: View {
                         .border(.primary, width: 2)
 
                     TextField("Color Hex:", text: $rgbHex)
-                }.padding()
+                }.padding(.horizontal)
             }
 
             GroupBox {
-                Text("Select Icon to embedd in QR Code")
-                    .font(.subheadline)
-                    .padding()
+                Text("Icon")
+                    .font(.title)
 
                 HStack {
                     Image(nsImage: NSImage(data: pickedImageData ?? Data()) ?? NSImage())
@@ -55,6 +40,7 @@ struct ConfigurationView: View {
                         .scaledToFit()
                         .frame(width: 60, height: 60)
                         .border(.primary, width: 2)
+                        .padding(.horizontal)
 
                     Button("Select Icon") {
                         let openPanel = NSOpenPanel()
@@ -74,25 +60,16 @@ struct ConfigurationView: View {
                             }
                         }
                     }
+                    .padding(.horizontal)
 
                     Spacer()
-                }.padding()
-            }
-            
-            if pickedImageData != nil {
-                GroupBox {
-                    Text("Select Icon Size")
-                        .font(.subheadline)
-                        .padding()
-                    
-                    Slider(value: $iconSize, in: 10...100)
                 }
+                
+                Slider(value: $iconSize, in: 10...100)
+                    .padding(.horizontal)
             }
 
             GroupBox {
-                Text("Preview")
-                    .padding()
-
                 if let image = QRCodeGenerator.previewConfigQRCode(
                     content: "www.google.com",
                     tintColor: NSColor(fromHex: rgbHex),
@@ -104,21 +81,37 @@ struct ConfigurationView: View {
                         .interpolation(.none)
                         .scaledToFit()
                         .frame(width: 300)
+                        .border(.primary, width: 2)
                 }
-
-                Button("Save") {
-                    configurationViewModel.saveIcon(pickedImageData)
-                    configurationViewModel.saveColor(rgbHex)
-                    configurationViewModel.saveIconSize(NSSize(width: iconSize, height: iconSize))
-                    showingSettings = false
-                    
-                    if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
-                        appDelegate.qrCodeViewModel.lastValidURL = nil
+            }
+            
+            GroupBox {
+                HStack {
+                    Button(role: .cancel) {
+                        showingSettings = false
+                    } label: {
+                        Text("Cancel")
                     }
-                }.padding()
+                    .padding()
+                    
+                    Spacer()
+                    
+                    Button("Save") {
+                        configurationViewModel.saveIconData(pickedImageData)
+                        configurationViewModel.saveColor(rgbHex)
+                        configurationViewModel.saveIconSize(NSSize(width: iconSize, height: iconSize))
+                        showingSettings = false
+                        
+                        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+                            appDelegate.qrCodeViewModel.reset()
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding()
+                }
             }
         }.onAppear {
-            rgbHex = configurationViewModel.getSavedColor()
+            rgbHex = configurationViewModel.getColor()
             pickedImageData = configurationViewModel.getIconData()
             iconSize = configurationViewModel.getIconSize().width
         }

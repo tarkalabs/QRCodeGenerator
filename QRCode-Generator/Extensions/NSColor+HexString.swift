@@ -21,7 +21,7 @@ extension NSColor {
 extension NSColor {
     /// Initialises NSColor from a hexadecimal string. Color is clear if string is invalid.
     /// - Parameter fromHex: supported formats are "#RGB", "#RGBA", "#RRGGBB", "#RRGGBBAA", with or without the # character
-    public convenience init(fromHex:String) {
+    convenience init(fromHex:String) {
         var r = 0, g = 0, b = 0, a = 255
         let offset = fromHex.hasPrefix("#") ? 1 : 0
         let ch = fromHex.map{$0}
