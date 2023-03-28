@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             qrCodeViewModel.refresh()
 
-            timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
                 self.qrCodeViewModel.refresh()
             }
 
@@ -76,3 +76,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 }
+

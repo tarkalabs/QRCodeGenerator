@@ -98,6 +98,10 @@ struct ConfigurationView: View {
                     configurationViewModel.saveIcon(pickedImageData)
                     configurationViewModel.saveColor(rgbHex)
                     showingSettings = false
+                    
+                    if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+                        appDelegate.qrCodeViewModel.lastValidURL = nil
+                    }
                 }.padding()
             }
         }.onAppear {
