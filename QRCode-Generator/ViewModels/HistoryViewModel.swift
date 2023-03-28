@@ -14,24 +14,24 @@ class HistoryViewModel: ObservableObject {
     private var historyPath: URL? {
         FileManager.sharedContainerURL?.appendingPathComponent(historyPlistName)
     }
-    
+
     init() {
         history = readHistory()
     }
-    
+
     func delete(_ index: Int) {
         guard let historyPath else {
             return
         }
-        
+
         var historyFromDisk = readHistory()
-        
+
         if !historyFromDisk.isEmpty {
             historyFromDisk.remove(at: index)
         }
-                
+
         history = historyFromDisk
-        
+
         let mutableArray = NSMutableArray(array: historyFromDisk)
 
         do {
@@ -62,12 +62,12 @@ class HistoryViewModel: ObservableObject {
             print (error)
         }
     }
-    
+
     func readHistory() -> [String] {
         guard let historyPath else {
             return []
         }
-        
+
         return (NSMutableArray(contentsOf: historyPath) as? [String]) ?? []
     }
 }

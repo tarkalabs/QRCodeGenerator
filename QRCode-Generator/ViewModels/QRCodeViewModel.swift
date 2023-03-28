@@ -38,7 +38,7 @@ class QRCodeViewModel: ObservableObject {
 
         if let qrcodeImage = QRCodeGenerator.getQRCodeImage(content, upscaled) {
             isSuccess = true
-            
+
             historyManager.writeToHistory(content)
             return qrcodeImage.png
         }

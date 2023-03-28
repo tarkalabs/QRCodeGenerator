@@ -56,11 +56,11 @@ struct HistoryView: View {
                         }
                         
                         if let showPreviewUrl,
-                            let qrCodeImage = QRCodeGenerator.getQRCodeImage(showPreviewUrl, true),
-                            showPreviewUrl == entry {
+                           let qrCodeImage = QRCodeGenerator.getQRCodeImage(showPreviewUrl, true),
+                           showPreviewUrl == entry {
                             
                             Divider()
-
+                            
                             Image(nsImage: qrCodeImage)
                                 .resizable()
                                 .interpolation(.none)

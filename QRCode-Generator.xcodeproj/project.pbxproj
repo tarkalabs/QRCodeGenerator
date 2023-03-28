@@ -23,6 +23,7 @@
 		EDBB6EDA29D325AF00A37F1C /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */; };
 		EDBB6EDC29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */; };
 		EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */; };
+		EDBB6EE029D359F300A37F1C /* NSImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
 		EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+GetTintWithIcon.swift"; sourceTree = "<group>"; };
 		EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexString.swift"; sourceTree = "<group>"; };
+		EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +112,12 @@
 		EDBB6ED529D2EC8E00A37F1C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
-				EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */,
-				EDBB6ECD29D2E9C700A37F1C /* FileManager+SharedContainer.swift */,
 				EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */,
+				EDBB6ECD29D2E9C700A37F1C /* FileManager+SharedContainer.swift */,
 				EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */,
+				EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */,
+				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
+				EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDBB6EE029D359F300A37F1C /* NSImage+Resize.swift in Sources */,
 				EDBB6ECA29D2E93600A37F1C /* NSImage+SavePNG.swift in Sources */,
 				EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */,
 				EDBB6ED829D2F20400A37F1C /* ConfigurationView.swift in Sources */,

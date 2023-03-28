@@ -9,21 +9,21 @@ import Cocoa
 
 extension NSImage {
     var height: CGFloat {
-        return size.height
+        size.height
     }
-    
+
     var width: CGFloat {
-        return size.width
+        size.width
     }
-    
+
     var png: Data? {
         if let tiff = self.tiffRepresentation, let tiffData = NSBitmapImageRep(data: tiff) {
             return tiffData.representation(using: .png, properties: [:])
         }
-        
+
         return nil
     }
-    
+
     func savePngTo(url: URL) throws {
         if let png {
             try png.write(to: url, options: .atomicWrite)

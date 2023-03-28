@@ -17,7 +17,7 @@ struct ConfigurationView: View {
         VStack {
             HStack {
                 Spacer()
-                
+
                 Button(action: {
                     showingSettings = false
                 }, label: {
@@ -27,12 +27,12 @@ struct ConfigurationView: View {
                 .buttonStyle(.borderless)
                 .padding()
             }
-            
+
             GroupBox {
                 Text("Select Color for QR Code")
                     .font(.subheadline)
                     .padding()
-                
+
                 HStack {
                     RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
                         .fill(Color(nsColor: NSColor(fromHex: rgbHex)))
@@ -42,12 +42,12 @@ struct ConfigurationView: View {
                     TextField("Color Hex:", text: $rgbHex)
                 }.padding()
             }
-            
+
             GroupBox {
                 Text("Select Icon to embedd in QR Code")
                     .font(.subheadline)
                     .padding()
-                
+
                 HStack {
                     Image(nsImage: NSImage(data: pickedImageData ?? Data()) ?? NSImage())
                         .resizable()
@@ -73,16 +73,16 @@ struct ConfigurationView: View {
                             }
                         }
                     }
-                    
+
                     Spacer()
                 }.padding()
             }
-            
+
             GroupBox {
                 Text("Preview")
                     .padding()
-                
-                if let image = QRCodeGenerator.getQRCodeImage(
+
+                if let image = QRCodeGenerator.previewConfigQRCode(
                     "www.google.com",
                     true,
                     NSColor(fromHex: rgbHex),
@@ -93,10 +93,11 @@ struct ConfigurationView: View {
                         .interpolation(.none)
                         .scaledToFit()
                 }
-                
+
                 Button("Save") {
                     configurationViewModel.saveIcon(pickedImageData)
                     configurationViewModel.saveColor(rgbHex)
+                    showingSettings = false
                 }.padding()
             }
         }.onAppear {

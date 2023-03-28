@@ -13,7 +13,7 @@ extension NSColor {
         let green = Int(round(self.greenComponent * 0xFF))
         let blue = Int(round(self.blueComponent * 0xFF))
         let hexString = NSString(format: "#%02X%02X%02X", red, green, blue)
-        
+
         return hexString as String
     }
 }
@@ -25,7 +25,7 @@ extension NSColor {
         var r = 0, g = 0, b = 0, a = 255
         let offset = fromHex.hasPrefix("#") ? 1 : 0
         let ch = fromHex.map{$0}
-        
+
         switch(ch.count - offset) {
         case 8:
             a = 16 * (ch[offset+6].hexDigitValue ?? 0) + (ch[offset+7].hexDigitValue ?? 0)
@@ -47,7 +47,7 @@ extension NSColor {
             a = 255
             break
         }
-        
+
         self.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: CGFloat(a)/255)
     }
 }

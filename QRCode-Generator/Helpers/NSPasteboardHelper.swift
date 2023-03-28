@@ -17,7 +17,7 @@ class NSPasteboardHelper {
                 urlString = string.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
-        
+
         return urlString
     }
 }
