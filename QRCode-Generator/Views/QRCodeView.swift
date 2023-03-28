@@ -34,7 +34,7 @@ struct QRCodeView: View {
                         let fileURL = FileManager.sharedContainerURL?.appendingPathComponent("qrCode.png")
                         
                         do {
-                            try QRCodeGenerator.getQRCodeImage(url, true)?.savePngTo(url: fileURL!)
+                            try QRCodeGenerator.getQRCodeImage(content: url)?.savePngTo(url: fileURL!)
                         } catch {
                             print (error)
                         }

@@ -22,11 +22,11 @@ class QRCodeViewModel: ObservableObject {
         let urlString = NSPasteboardHelper.getRecentURLContent()
 
         if lastValidURL != urlString {
-            qrCodeImageData = getQRCodeImage(urlString, true)
+            qrCodeImageData = getQRCodeImage(urlString)
         }
     }
 
-    private func getQRCodeImage(_ content: String, _ upscaled: Bool) -> Data? {
+    private func getQRCodeImage(_ content: String) -> Data? {
         isSuccess = false
 
         guard content.isValidURL else {
@@ -36,7 +36,7 @@ class QRCodeViewModel: ObservableObject {
 
         lastValidURL = content
 
-        if let qrcodeImage = QRCodeGenerator.getQRCodeImage(content, upscaled) {
+        if let qrcodeImage = QRCodeGenerator.getQRCodeImage(content: content) {
             isSuccess = true
 
             historyManager.writeToHistory(content)

@@ -12,6 +12,7 @@ struct ConfigurationView: View {
     @Binding var showingSettings: Bool
     @State private var pickedImageData: Data?
     private let configurationViewModel = ConfigurationHelper()
+    @State private var iconSize: Double = 10
 
     var body: some View {
         VStack {
@@ -77,26 +78,38 @@ struct ConfigurationView: View {
                     Spacer()
                 }.padding()
             }
+            
+            if pickedImageData != nil {
+                GroupBox {
+                    Text("Select Icon Size")
+                        .font(.subheadline)
+                        .padding()
+                    
+                    Slider(value: $iconSize, in: 10...100)
+                }
+            }
 
             GroupBox {
                 Text("Preview")
                     .padding()
 
                 if let image = QRCodeGenerator.previewConfigQRCode(
-                    "www.google.com",
-                    true,
-                    NSColor(fromHex: rgbHex),
-                    NSImage(data: pickedImageData ?? Data())
+                    content: "www.google.com",
+                    tintColor: NSColor(fromHex: rgbHex),
+                    logo: NSImage(data: pickedImageData ?? Data()),
+                    iconSize: NSSize(width: iconSize, height: iconSize)
                 ) {
                     Image(nsImage: image)
                         .resizable()
                         .interpolation(.none)
                         .scaledToFit()
+                        .frame(width: 300)
                 }
 
                 Button("Save") {
                     configurationViewModel.saveIcon(pickedImageData)
                     configurationViewModel.saveColor(rgbHex)
+                    configurationViewModel.saveIconSize(NSSize(width: iconSize, height: iconSize))
                     showingSettings = false
                     
                     if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
@@ -107,6 +120,7 @@ struct ConfigurationView: View {
         }.onAppear {
             rgbHex = configurationViewModel.getSavedColor()
             pickedImageData = configurationViewModel.getIconData()
+            iconSize = configurationViewModel.getIconSize().width
         }
         .frame(width: 320)
     }

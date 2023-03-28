@@ -56,7 +56,7 @@ struct HistoryView: View {
                         }
                         
                         if let showPreviewUrl,
-                           let qrCodeImage = QRCodeGenerator.getQRCodeImage(showPreviewUrl, true),
+                           let qrCodeImage = QRCodeGenerator.getQRCodeImage(content: showPreviewUrl),
                            showPreviewUrl == entry {
                             
                             Divider()

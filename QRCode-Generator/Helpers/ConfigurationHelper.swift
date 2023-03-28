@@ -11,6 +11,7 @@ import Foundation
 class ConfigurationHelper {
     private let colorFileName = "Color.txt"
     private let iconImageName = "icon"
+    private let iconSize = "IconSize.txt"
 
     private var colorPath: URL? {
         FileManager.sharedContainerURL?.appendingPathComponent(colorFileName)
@@ -18,6 +19,22 @@ class ConfigurationHelper {
 
     private var imagePath: URL? {
         FileManager.sharedContainerURL?.appendingPathComponent(iconImageName)
+    }
+    
+    private var iconSizePath: URL? {
+        FileManager.sharedContainerURL?.appendingPathComponent(iconSize)
+    }
+    
+    func saveIconSize(_ size: NSSize) {
+        guard let iconSizePath else {
+            return
+        }
+        
+        do {
+            try (NSStringFromSize(size) as String).debugDescription.write(to: iconSizePath, atomically: true, encoding: .utf8)
+        } catch {
+            print(error)
+        }
     }
 
     func saveIcon(_ data: Data?) {
@@ -30,6 +47,23 @@ class ConfigurationHelper {
         } catch {
             print (error)
         }
+    }
+    
+    func getIconSize() -> NSSize {
+        var iconSize = NSSize()
+        
+        guard let iconSizePath else {
+            return iconSize
+        }
+
+        do {
+            let iconSizeString = try String(contentsOf: iconSizePath)
+            iconSize = NSSizeFromString(iconSizeString)
+        } catch {
+            print (error)
+        }
+        
+        return iconSize
     }
 
     func getIconData() -> Data {

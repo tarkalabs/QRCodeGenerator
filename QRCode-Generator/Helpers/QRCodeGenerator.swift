@@ -12,11 +12,17 @@ class QRCodeGenerator {
     private static let context = CIContext()
     private static let filter = CIFilter.qrCodeGenerator()
 
-    static func previewConfigQRCode(_ content: String, _ upscaled: Bool, _ tintColor: NSColor? = nil, _ logo: NSImage? = nil) -> NSImage? {
-        getQRCodeImage(content, upscaled, tintColor, logo, useConfig: false)
+    static func previewConfigQRCode(content: String, tintColor: NSColor? = nil, logo: NSImage? = nil, iconSize: NSSize? = nil) -> NSImage? {
+        getQRCodeImage(content: content, tintColor: tintColor, logo: logo, iconSize: iconSize, useConfig: false)
     }
 
-    static func getQRCodeImage(_ content: String, _ upscaled: Bool, _ tintColor: NSColor? = nil, _ logo: NSImage? = nil, useConfig: Bool = true) -> NSImage? {
+    static func getQRCodeImage(
+        content: String,
+        tintColor: NSColor? = nil,
+        logo: NSImage? = nil,
+        iconSize: NSSize? = nil,
+        useConfig: Bool = true
+    ) -> NSImage? {
         let configurationHelper = ConfigurationHelper()
 
         var tintColor = tintColor
@@ -32,6 +38,12 @@ class QRCodeGenerator {
         if useConfig {
             logo = NSImage(data: configurationHelper.getIconData())
         }
+        
+        var iconSize = iconSize
+        
+        if useConfig {
+            iconSize = configurationHelper.getIconSize()
+        }
 
         let data = Data(content.utf8)
         filter.setValue(data, forKey: "inputMessage")
@@ -39,14 +51,15 @@ class QRCodeGenerator {
         var outputImage: CIImage?
 
         let qrTransform = CGAffineTransform(scaleX: 12, y: 12)
-        outputImage = upscaled ? filter.outputImage?.transformed(by: qrTransform) : filter.outputImage
+        outputImage = filter.outputImage?.transformed(by: qrTransform)
 
         if let tintColor {
             outputImage = outputImage?.tinted(using: tintColor)
         }
 
         if let logo,
-            let resizedLogo = logo.resizeMaintainingAspectRatio(withSize: NSSize(width: 24, height: 24)) {
+           let iconSize,
+            let resizedLogo = logo.resizeMaintainingAspectRatio(withSize: iconSize) {
             var imageRect = CGRect(x: 0, y: 0, width: resizedLogo.size.width, height: resizedLogo.size.height)
 
             if let imageRef = resizedLogo.cgImage(forProposedRect: &imageRect, context: nil, hints: nil) {
@@ -59,5 +72,9 @@ class QRCodeGenerator {
         }
 
         return nil
+    }
+    
+    private func getSavedSettings() {
+        
     }
 }
