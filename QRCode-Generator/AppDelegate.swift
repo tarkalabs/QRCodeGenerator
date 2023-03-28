@@ -11,7 +11,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     var popover = NSPopover()
-    let qrCodeViewModel = QRCodeGenerator()
+    let qrCodeViewModel = QRCodeViewModel()
 
     var timer: Timer?
     var menu: NSMenu!
@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupMacMenu()
 
         let statusBarMenu = NSMenu(title: "")
+        
         statusBarMenu.addItem(
             withTitle: "Quit application",
             action: #selector(quitApplication),
@@ -30,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func quitApplication(_ sender: NSMenu) {
+        // (save currently generated qrcodes)
         NSApplication.shared.terminate(self)
     }
 

@@ -10,9 +10,19 @@
 		ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */; };
 		ED42847229C9CC4F00AD8DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED42847129C9CC4F00AD8DCA /* Assets.xcassets */; };
 		ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */; };
-		ED42847F29C9CE4800AD8DCA /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847E29C9CE4800AD8DCA /* QRCodeGenerator.swift */; };
+		ED42847F29C9CE4800AD8DCA /* QRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */; };
 		ED42848129C9CE6200AD8DCA /* String+IsValidURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */; };
 		ED42848329C9CF8800AD8DCA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42848229C9CF8800AD8DCA /* main.swift */; };
+		EDBB6EC829D2E90C00A37F1C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EC729D2E90C00A37F1C /* HistoryView.swift */; };
+		EDBB6ECA29D2E93600A37F1C /* NSImage+SavePNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */; };
+		EDBB6ECC29D2E9A600A37F1C /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ECB29D2E9A600A37F1C /* HistoryViewModel.swift */; };
+		EDBB6ECE29D2E9C700A37F1C /* FileManager+SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ECD29D2E9C700A37F1C /* FileManager+SharedContainer.swift */; };
+		EDBB6ED029D2E9E000A37F1C /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ECF29D2E9E000A37F1C /* QRCodeGenerator.swift */; };
+		EDBB6ED229D2EAF300A37F1C /* NSPasteboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ED129D2EAF300A37F1C /* NSPasteboardHelper.swift */; };
+		EDBB6ED829D2F20400A37F1C /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ED729D2F20400A37F1C /* ConfigurationView.swift */; };
+		EDBB6EDA29D325AF00A37F1C /* ConfigurationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */; };
+		EDBB6EDC29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */; };
+		EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +31,19 @@
 		ED42847129C9CC4F00AD8DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED42847629C9CC4F00AD8DCA /* QRCode_Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRCode_Generator.entitlements; sourceTree = "<group>"; };
 		ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
-		ED42847E29C9CE4800AD8DCA /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
+		ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewModel.swift; sourceTree = "<group>"; };
 		ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidURL.swift"; sourceTree = "<group>"; };
 		ED42848229C9CF8800AD8DCA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EDBB6EC729D2E90C00A37F1C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+SavePNG.swift"; sourceTree = "<group>"; };
+		EDBB6ECB29D2E9A600A37F1C /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		EDBB6ECD29D2E9C700A37F1C /* FileManager+SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+SharedContainer.swift"; sourceTree = "<group>"; };
+		EDBB6ECF29D2E9E000A37F1C /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
+		EDBB6ED129D2EAF300A37F1C /* NSPasteboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPasteboardHelper.swift; sourceTree = "<group>"; };
+		EDBB6ED729D2F20400A37F1C /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationHelper.swift; sourceTree = "<group>"; };
+		EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+GetTintWithIcon.swift"; sourceTree = "<group>"; };
+		EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +77,56 @@
 			isa = PBXGroup;
 			children = (
 				ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */,
+				EDBB6ED529D2EC8E00A37F1C /* Extensions */,
+				EDBB6ED629D2ECC300A37F1C /* Helpers */,
 				ED42848229C9CF8800AD8DCA /* main.swift */,
-				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
-				ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */,
-				ED42847E29C9CE4800AD8DCA /* QRCodeGenerator.swift */,
+				EDBB6ED329D2EC7300A37F1C /* Views */,
+				EDBB6ED429D2EC8100A37F1C /* ViewModels */,
 				ED42847129C9CC4F00AD8DCA /* Assets.xcassets */,
 				ED42847629C9CC4F00AD8DCA /* QRCode_Generator.entitlements */,
 			);
 			path = "QRCode-Generator";
+			sourceTree = "<group>";
+		};
+		EDBB6ED329D2EC7300A37F1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */,
+				EDBB6EC729D2E90C00A37F1C /* HistoryView.swift */,
+				EDBB6ED729D2F20400A37F1C /* ConfigurationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDBB6ED429D2EC8100A37F1C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */,
+				EDBB6ECB29D2E9A600A37F1C /* HistoryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EDBB6ED529D2EC8E00A37F1C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
+				EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */,
+				EDBB6ECD29D2E9C700A37F1C /* FileManager+SharedContainer.swift */,
+				EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */,
+				EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EDBB6ED629D2ECC300A37F1C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDBB6ECF29D2E9E000A37F1C /* QRCodeGenerator.swift */,
+				EDBB6ED129D2EAF300A37F1C /* NSPasteboardHelper.swift */,
+				EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,11 +198,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDBB6ECA29D2E93600A37F1C /* NSImage+SavePNG.swift in Sources */,
+				EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */,
+				EDBB6ED829D2F20400A37F1C /* ConfigurationView.swift in Sources */,
 				ED42848129C9CE6200AD8DCA /* String+IsValidURL.swift in Sources */,
+				EDBB6EC829D2E90C00A37F1C /* HistoryView.swift in Sources */,
+				EDBB6EDA29D325AF00A37F1C /* ConfigurationHelper.swift in Sources */,
 				ED42848329C9CF8800AD8DCA /* main.swift in Sources */,
+				EDBB6ECE29D2E9C700A37F1C /* FileManager+SharedContainer.swift in Sources */,
+				EDBB6ED029D2E9E000A37F1C /* QRCodeGenerator.swift in Sources */,
 				ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */,
-				ED42847F29C9CE4800AD8DCA /* QRCodeGenerator.swift in Sources */,
+				ED42847F29C9CE4800AD8DCA /* QRCodeViewModel.swift in Sources */,
+				EDBB6EDC29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift in Sources */,
 				ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */,
+				EDBB6ED229D2EAF300A37F1C /* NSPasteboardHelper.swift in Sources */,
+				EDBB6ECC29D2E9A600A37F1C /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
