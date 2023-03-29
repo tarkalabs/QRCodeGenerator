@@ -28,6 +28,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Setting menu
         menu = statusBarMenu
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(detachedWindowWillClose(notification:)),
+            name: NSPopover.willCloseNotification,
+            object: popover
+        )
+    }
+    
+    @objc private func detachedWindowWillClose(notification: NSNotification) {
+        timer?.invalidate()
+        timer = nil
     }
 
     @objc private func quitApplication(_ sender: NSMenu) {
@@ -62,8 +74,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         if popover.isShown {
-            timer?.invalidate()
-            timer = nil
             popover.performClose(sender)
         } else {
             qrCodeViewModel.refresh()
