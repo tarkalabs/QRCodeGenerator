@@ -4,6 +4,7 @@ Menu bar macOS application to generate a QR code for any URL in the pasteboard /
 ## Features
 1. History
 2. Customize a QR Code with color and custom icons
+3. Export generated QR code
 
 ## Screen Recording
 
