@@ -1,5 +1,11 @@
-# QRCodeGenerator
-Menu application for macOS that generates a QR code for any URL in the pasteboard / clipboard.
+# QRCode Generator
+Menu bar macOS application to generate a QR code for any URL in the pasteboard / clipboard.
+
+## Features
+1. History
+2. Customize a QR Code with color and custom icons
+
+## Screen Recording
 
 https://user-images.githubusercontent.com/16992520/229797343-c0f43f29-b35c-4327-999b-b4fb0820728c.mp4
 
