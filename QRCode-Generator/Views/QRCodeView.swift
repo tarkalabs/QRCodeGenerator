@@ -30,7 +30,7 @@ struct QRCodeView: View {
                     .interpolation(.none)
                     .scaledToFit()
                     .onDrag {
-                        TemporaryQRCodeExporter.exportQRCodeWithString(viewModel.lastValidURL ?? "")
+                        TemporaryQRCodeExporter().exportQRCodeWithString(viewModel.lastValidURL ?? "")
                                     
                         return NSItemProvider(item: FileManager.temporaryExportPath as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
                     }

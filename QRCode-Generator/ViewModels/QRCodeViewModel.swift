@@ -20,7 +20,7 @@ class QRCodeViewModel: ObservableObject {
    }
 
     func refresh() {
-        let urlString = NSPasteboardHelper.getRecentURLContent()
+        let urlString = NSPasteboardHelper().getRecentURLContent()
 
         if lastValidURL != urlString, urlString.isValidURL, shouldUpdateURL {
             qrCodeImageData = getQRCodeImage(urlString)
@@ -38,7 +38,7 @@ class QRCodeViewModel: ObservableObject {
 
         lastValidURL = content
 
-        if let qrcodeImage = QRCodeGenerator.getQRCodeImage(content: content) {
+        if let qrcodeImage = QRCodeGenerator().getQRCodeImage(content: content) {
             isSuccess = true
 
             historyManager.writeToHistory(content)

@@ -58,7 +58,7 @@ struct HistoryView: View {
                         }
                         
                         if let currentPreviewURL,
-                           let qrCodeImage = QRCodeGenerator.getQRCodeImage(content: currentPreviewURL),
+                           let qrCodeImage = QRCodeGenerator().getQRCodeImage(content: currentPreviewURL),
                            currentPreviewURL == entry {
                             
                             Divider()
@@ -68,7 +68,7 @@ struct HistoryView: View {
                                 .interpolation(.none)
                                 .scaledToFit()
                                 .onDrag {
-                                    TemporaryQRCodeExporter.exportQRCodeImage(qrCodeImage)
+                                    TemporaryQRCodeExporter().exportQRCodeImage(qrCodeImage)
                                     
                                     return NSItemProvider(item: FileManager.temporaryExportPath as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
                                 }

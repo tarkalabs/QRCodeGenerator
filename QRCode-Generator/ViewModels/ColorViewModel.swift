@@ -12,7 +12,7 @@ class ColorViewModel: ObservableObject {
 
     init() {
         TimerManager().startTimer { timer in
-            let pasteBoardColor = NSPasteboardHelper.getRecentPickedColor()
+            let pasteBoardColor = NSPasteboardHelper().getRecentPickedColor()
             
             if pasteBoardColor.isValidColor {
                 self.pickedColor = pasteBoardColor

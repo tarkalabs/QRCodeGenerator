@@ -109,7 +109,7 @@ struct ConfigurationView: View {
 
     var previewQRCodeView: some View {
         GroupBox {
-            if let image = QRCodeGenerator.previewConfigQRCode(
+            if let image = QRCodeGenerator().previewConfigQRCode(
                 content: "www.google.com",
                 tintColor: NSColor(fromHex: colorViewModel.pickedColor),
                 logo: NSImage(data: pickedIconImageData ?? Data()),

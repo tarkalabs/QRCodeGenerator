@@ -8,9 +8,7 @@
 import Cocoa
 
 class NSPasteboardHelper {
-    private init() { }
-
-    static func getRecentURLContent() -> String {
+    func getRecentURLContent() -> String {
         let pasteBoardItems = NSPasteboard.general.pasteboardItems ?? []
         var urlString = ""
 
@@ -23,7 +21,7 @@ class NSPasteboardHelper {
         return urlString
     }
     
-    static func getRecentPickedColor() -> String {
+    func getRecentPickedColor() -> String {
         let pasteBoardItems = NSPasteboard.general.pasteboardItems ?? []
         var colorString = ""
         
