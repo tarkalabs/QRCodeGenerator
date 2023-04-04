@@ -11,6 +11,8 @@ import Cocoa
 class QRCodeGenerator {
     private static let context = CIContext()
     private static let filter = CIFilter.qrCodeGenerator()
+    
+    private init() { }
 
     static func previewConfigQRCode(content: String, tintColor: NSColor? = nil, logo: NSImage? = nil, iconSize: NSSize? = nil) -> NSImage? {
         getQRCodeImage(content: content, tintColor: tintColor, logo: logo, iconSize: iconSize, useConfig: false)

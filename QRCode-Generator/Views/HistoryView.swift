@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 struct HistoryView: View {
     @ObservedObject var historyViewModel: HistoryViewModel
     @Binding var showingHistory: Bool
-    @State var showPreviewUrl: String?
+    @State var currentPreviewURL: String?
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -33,13 +33,13 @@ struct HistoryView: View {
                             Spacer()
                             
                             Button(action: {
-                                if showPreviewUrl == entry {
-                                    showPreviewUrl = nil
+                                if currentPreviewURL == entry {
+                                    currentPreviewURL = nil
                                 } else {
-                                    showPreviewUrl = entry
+                                    currentPreviewURL = entry
                                 }
                             }, label: {
-                                if showPreviewUrl == entry {
+                                if currentPreviewURL == entry {
                                     Image(systemName: "eye.slash.fill")
                                 } else {
                                     Image(systemName: "eye")
@@ -55,9 +55,9 @@ struct HistoryView: View {
                             })
                         }
                         
-                        if let showPreviewUrl,
-                           let qrCodeImage = QRCodeGenerator.getQRCodeImage(content: showPreviewUrl),
-                           showPreviewUrl == entry {
+                        if let currentPreviewURL,
+                           let qrCodeImage = QRCodeGenerator.getQRCodeImage(content: currentPreviewURL),
+                           currentPreviewURL == entry {
                             
                             Divider()
                             
@@ -66,16 +66,9 @@ struct HistoryView: View {
                                 .interpolation(.none)
                                 .scaledToFit()
                                 .onDrag {
-                                    let fileURL = FileManager.sharedContainerURL?.appendingPathComponent("qrCode.png")
-                                    // I extended `URL`, feel free to create file in your own way
+                                    TemporaryQRCodeExporter.exportQRCodeImage(qrCodeImage)
                                     
-                                    do {
-                                        try qrCodeImage.savePngTo(url: fileURL!)
-                                    } catch {
-                                        print (error)
-                                    }
-                                    
-                                    return NSItemProvider(item: fileURL! as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
+                                    return NSItemProvider(item: FileManager.temporaryExportPath as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
                                 }
                         }
                     }

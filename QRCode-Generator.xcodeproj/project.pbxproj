@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0EC66429DC000D00226C3C /* TemporaryQRCodeExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66329DC000D00226C3C /* TemporaryQRCodeExporter.swift */; };
+		ED0EC66629DC015600226C3C /* FileManager+TemporaryFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66529DC015600226C3C /* FileManager+TemporaryFilePath.swift */; };
+		ED0EC66829DC050A00226C3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66729DC050A00226C3C /* Constants.swift */; };
+		ED0EC66C29DC1BA700226C3C /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */; };
 		ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */; };
 		ED42847229C9CC4F00AD8DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED42847129C9CC4F00AD8DCA /* Assets.xcassets */; };
 		ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */; };
@@ -24,9 +28,14 @@
 		EDBB6EDC29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */; };
 		EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */; };
 		EDBB6EE029D359F300A37F1C /* NSImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */; };
+		EDBB6F0229D4082A00A37F1C /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB6F0129D4082A00A37F1C /* TimerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED0EC66329DC000D00226C3C /* TemporaryQRCodeExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryQRCodeExporter.swift; sourceTree = "<group>"; };
+		ED0EC66529DC015600226C3C /* FileManager+TemporaryFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+TemporaryFilePath.swift"; sourceTree = "<group>"; };
+		ED0EC66729DC050A00226C3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
 		ED42846A29C9CC4F00AD8DCA /* QRCode-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QRCode-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED42847129C9CC4F00AD8DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+GetTintWithIcon.swift"; sourceTree = "<group>"; };
 		EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexString.swift"; sourceTree = "<group>"; };
 		EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Resize.swift"; sourceTree = "<group>"; };
+		EDBB6F0129D4082A00A37F1C /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */,
+				ED0EC66729DC050A00226C3C /* Constants.swift */,
 				EDBB6ED529D2EC8E00A37F1C /* Extensions */,
 				EDBB6ED629D2ECC300A37F1C /* Helpers */,
 				ED42848229C9CF8800AD8DCA /* main.swift */,
@@ -93,9 +104,9 @@
 		EDBB6ED329D2EC7300A37F1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */,
-				EDBB6EC729D2E90C00A37F1C /* HistoryView.swift */,
 				EDBB6ED729D2F20400A37F1C /* ConfigurationView.swift */,
+				EDBB6EC729D2E90C00A37F1C /* HistoryView.swift */,
+				ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,8 +114,9 @@
 		EDBB6ED429D2EC8100A37F1C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */,
+				ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */,
 				EDBB6ECB29D2E9A600A37F1C /* HistoryViewModel.swift */,
+				ED42847E29C9CE4800AD8DCA /* QRCodeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -114,10 +126,11 @@
 			children = (
 				EDBB6EDB29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift */,
 				EDBB6ECD29D2E9C700A37F1C /* FileManager+SharedContainer.swift */,
+				ED0EC66529DC015600226C3C /* FileManager+TemporaryFilePath.swift */,
 				EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */,
+				EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */,
 				EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */,
 				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
-				EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -125,9 +138,11 @@
 		EDBB6ED629D2ECC300A37F1C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				EDBB6ECF29D2E9E000A37F1C /* QRCodeGenerator.swift */,
-				EDBB6ED129D2EAF300A37F1C /* NSPasteboardHelper.swift */,
 				EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */,
+				EDBB6ED129D2EAF300A37F1C /* NSPasteboardHelper.swift */,
+				ED0EC66329DC000D00226C3C /* TemporaryQRCodeExporter.swift */,
+				EDBB6F0129D4082A00A37F1C /* TimerManager.swift */,
+				EDBB6ECF29D2E9E000A37F1C /* QRCodeGenerator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -203,8 +218,12 @@
 			files = (
 				EDBB6EE029D359F300A37F1C /* NSImage+Resize.swift in Sources */,
 				EDBB6ECA29D2E93600A37F1C /* NSImage+SavePNG.swift in Sources */,
+				ED0EC66C29DC1BA700226C3C /* ColorViewModel.swift in Sources */,
 				EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */,
+				EDBB6F0229D4082A00A37F1C /* TimerManager.swift in Sources */,
 				EDBB6ED829D2F20400A37F1C /* ConfigurationView.swift in Sources */,
+				ED0EC66629DC015600226C3C /* FileManager+TemporaryFilePath.swift in Sources */,
+				ED0EC66429DC000D00226C3C /* TemporaryQRCodeExporter.swift in Sources */,
 				ED42848129C9CE6200AD8DCA /* String+IsValidURL.swift in Sources */,
 				EDBB6EC829D2E90C00A37F1C /* HistoryView.swift in Sources */,
 				EDBB6EDA29D325AF00A37F1C /* ConfigurationHelper.swift in Sources */,
@@ -213,6 +232,7 @@
 				EDBB6ED029D2E9E000A37F1C /* QRCodeGenerator.swift in Sources */,
 				ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */,
 				ED42847F29C9CE4800AD8DCA /* QRCodeViewModel.swift in Sources */,
+				ED0EC66829DC050A00226C3C /* Constants.swift in Sources */,
 				EDBB6EDC29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift in Sources */,
 				ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */,
 				EDBB6ED229D2EAF300A37F1C /* NSPasteboardHelper.swift in Sources */,

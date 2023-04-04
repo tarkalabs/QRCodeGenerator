@@ -11,7 +11,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
     private var popover = NSPopover()
-    private var timer: Timer?
+    private let timerManager = TimerManager()
     private var menu: NSMenu!
     
     let qrCodeViewModel = QRCodeViewModel()
@@ -38,8 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func detachedWindowWillClose(notification: NSNotification) {
-        timer?.invalidate()
-        timer = nil
+        timerManager.stopTimer()
     }
 
     @objc private func quitApplication(_ sender: NSMenu) {
@@ -78,7 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             qrCodeViewModel.refresh()
 
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            timerManager.startTimer { timer in
                 self.qrCodeViewModel.refresh()
             }
 

@@ -30,16 +30,9 @@ struct QRCodeView: View {
                     .interpolation(.none)
                     .scaledToFit()
                     .onDrag {
-                        let url = viewModel.lastValidURL ?? ""
-                        let fileURL = FileManager.sharedContainerURL?.appendingPathComponent("qrCode.png")
-                        
-                        do {
-                            try QRCodeGenerator.getQRCodeImage(content: url)?.savePngTo(url: fileURL!)
-                        } catch {
-                            print (error)
-                        }
+                        TemporaryQRCodeExporter.exportQRCodeWithString(viewModel.lastValidURL ?? "")
                                     
-                        return NSItemProvider(item: fileURL! as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
+                        return NSItemProvider(item: FileManager.temporaryExportPath as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
                     }
             }
             

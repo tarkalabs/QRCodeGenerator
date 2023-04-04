@@ -25,6 +25,18 @@ class ConfigurationHelper {
         FileManager.sharedContainerURL?.appendingPathComponent(iconSize)
     }
     
+    func deleteIcon() {
+        guard let imagePath else {
+            return
+        }
+        
+        do {
+            try FileManager.default.removeItem(at: imagePath)
+        } catch {
+            print (error)
+        }
+    }
+    
     func saveIconSize(_ size: NSSize) {
         guard let iconSizePath else {
             return
