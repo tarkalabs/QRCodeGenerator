@@ -48,7 +48,7 @@ class QRCodeGenerator {
         }
 
         let data = Data(content.utf8)
-        filter.setValue(data, forKey: "inputMessage")
+        filter.setValue(data, forKey: CIImage.Constants.inputMessage)
 
         var outputImage: CIImage?
 

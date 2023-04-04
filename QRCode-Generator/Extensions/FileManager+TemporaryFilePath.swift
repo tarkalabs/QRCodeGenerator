@@ -11,6 +11,6 @@ extension FileManager {
     private static let tempFileName = "qrCode.png"
     
     static var temporaryExportPath: URL {
-        sharedContainerURL!.appendingPathComponent(tempFileName)
+        (sharedContainerURL ?? .homeDirectory).appendingPathComponent(tempFileName)
     }
 }

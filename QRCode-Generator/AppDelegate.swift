@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusBarMenu = NSMenu(title: "")
         
         statusBarMenu.addItem(
-            withTitle: "Quit application",
+            withTitle: Strings.quitApplication,
             action: #selector(quitApplication),
             keyEquivalent: "q")
 
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
         if let menuButton = statusItem?.button {
-            menuButton.image = NSImage(systemSymbolName: "qrcode", accessibilityDescription: nil)
+            menuButton.image = NSImage(systemSymbolName: ImageConstants.qrcode, accessibilityDescription: nil)
             menuButton.action = #selector(menuButtonAction(_:))
             menuButton.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }

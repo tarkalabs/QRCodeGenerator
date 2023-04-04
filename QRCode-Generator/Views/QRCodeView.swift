@@ -12,15 +12,15 @@ struct QRCodeView: View {
     @ObservedObject var viewModel: QRCodeViewModel
     @State var showingHistory = false
     @State var showingSettings = false
-
+    
     var body: some View {
         VStack(alignment: .center) {
             if !viewModel.isSuccess {
-                Image(systemName: "xmark.circle")
+                Image(systemName: ImageConstants.noImagePlaceHolder)
                     .resizable()
                     .scaledToFit()
                 
-                Text("Please copy a valid URL")
+                Text(Strings.copyValidURL)
                     .padding()
             }
             
@@ -40,12 +40,13 @@ struct QRCodeView: View {
 
             HStack {
                 Button {
+                    viewModel.shouldUpdateURL.toggle()
                     self.showingHistory.toggle()
                 } label: {
                     HStack {
-                        Image(systemName: "clock")
+                        Image(systemName: ImageConstants.history)
                         
-                        Text("History")
+                        Text(Strings.history)
                     }
                 }
                 .buttonStyle(.borderedProminent)
@@ -55,12 +56,13 @@ struct QRCodeView: View {
                 }
                 
                 Button {
+                    viewModel.shouldUpdateURL.toggle()
                     self.showingSettings.toggle()
                 } label: {
                     HStack {
-                        Image(systemName: "gearshape.fill")
+                        Image(systemName: ImageConstants.settings)
                         
-                        Text("Settings")
+                        Text(Strings.settings)
                     }
                 }
                 .buttonStyle(.automatic)

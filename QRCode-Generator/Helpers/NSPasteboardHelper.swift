@@ -32,7 +32,7 @@ class NSPasteboardHelper {
                 colorString = string
             }
         }
-        
+                
         return colorString
     }
 }

@@ -11,6 +11,7 @@
 		ED0EC66629DC015600226C3C /* FileManager+TemporaryFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66529DC015600226C3C /* FileManager+TemporaryFilePath.swift */; };
 		ED0EC66829DC050A00226C3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66729DC050A00226C3C /* Constants.swift */; };
 		ED0EC66C29DC1BA700226C3C /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */; };
+		ED0EC66E29DC311800226C3C /* String+IsValidColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66D29DC311800226C3C /* String+IsValidColor.swift */; };
 		ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */; };
 		ED42847229C9CC4F00AD8DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED42847129C9CC4F00AD8DCA /* Assets.xcassets */; };
 		ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */; };
@@ -36,6 +37,7 @@
 		ED0EC66529DC015600226C3C /* FileManager+TemporaryFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+TemporaryFilePath.swift"; sourceTree = "<group>"; };
 		ED0EC66729DC050A00226C3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
+		ED0EC66D29DC311800226C3C /* String+IsValidColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidColor.swift"; sourceTree = "<group>"; };
 		ED42846A29C9CC4F00AD8DCA /* QRCode-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QRCode-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED42847129C9CC4F00AD8DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				EDBB6EDD29D326E000A37F1C /* NSColor+HexString.swift */,
 				EDBB6EDF29D359F300A37F1C /* NSImage+Resize.swift */,
 				EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */,
+				ED0EC66D29DC311800226C3C /* String+IsValidColor.swift */,
 				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
 			);
 			path = Extensions;
@@ -221,6 +224,7 @@
 				ED0EC66C29DC1BA700226C3C /* ColorViewModel.swift in Sources */,
 				EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */,
 				EDBB6F0229D4082A00A37F1C /* TimerManager.swift in Sources */,
+				ED0EC66E29DC311800226C3C /* String+IsValidColor.swift in Sources */,
 				EDBB6ED829D2F20400A37F1C /* ConfigurationView.swift in Sources */,
 				ED0EC66629DC015600226C3C /* FileManager+TemporaryFilePath.swift in Sources */,
 				ED0EC66429DC000D00226C3C /* TemporaryQRCodeExporter.swift in Sources */,
@@ -375,7 +379,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "tarka.QRCode-Generator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -403,7 +407,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "tarka.QRCode-Generator";
 				PRODUCT_NAME = "$(TARGET_NAME)";

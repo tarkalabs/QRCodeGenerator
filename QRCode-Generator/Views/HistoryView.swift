@@ -16,9 +16,11 @@ struct HistoryView: View {
     var body: some View {
         VStack(alignment: .trailing) {
             Button(action: {
+                (NSApplication.shared.delegate as? AppDelegate)?.qrCodeViewModel.shouldUpdateURL.toggle()
+                
                 showingHistory = false
             }, label: {
-                Image(systemName: "xmark.circle.fill")
+                Image(systemName: ImageConstants.close)
             })
             .font(.title2)
             .buttonStyle(.borderless)
@@ -40,9 +42,9 @@ struct HistoryView: View {
                                 }
                             }, label: {
                                 if currentPreviewURL == entry {
-                                    Image(systemName: "eye.slash.fill")
+                                    Image(systemName: ImageConstants.hide)
                                 } else {
-                                    Image(systemName: "eye")
+                                    Image(systemName: ImageConstants.show)
                                 }
                             })
                             
@@ -51,7 +53,7 @@ struct HistoryView: View {
                                     historyViewModel.delete(selectionIndex)
                                 }
                             }, label: {
-                                Image(systemName: "trash")
+                                Image(systemName: ImageConstants.trash)
                             })
                         }
                         

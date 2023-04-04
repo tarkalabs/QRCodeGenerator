@@ -11,11 +11,15 @@ struct ConfigurationView: View {
     @Binding var showingSettings: Bool
 
     @State private var iconSize: Double = 10
-    @State private var pickedImageData: Data?
+    @State private var pickedIconImageData: Data?
 
     @ObservedObject var colorViewModel = ColorViewModel()
 
     private let configurationHelper = ConfigurationHelper()
+    
+    private var qrCodeViewModel: QRCodeViewModel? {
+        (NSApplication.shared.delegate as? AppDelegate)?.qrCodeViewModel
+    }
 
     var body: some View {
         VStack {
@@ -26,9 +30,10 @@ struct ConfigurationView: View {
             previewQRCodeView
 
             cancelAndSaveSettingsView
-        }.onAppear {
+        }
+        .onAppear {
             colorViewModel.pickedColor = configurationHelper.getColor()
-            pickedImageData = configurationHelper.getIconData()
+            pickedIconImageData = configurationHelper.getIconData()
             iconSize = configurationHelper.getIconSize().width
         }
         .frame(width: 320)
@@ -36,7 +41,7 @@ struct ConfigurationView: View {
 
     var colorPickerView: some View {
         GroupBox {
-            Text("Color")
+            Text(Strings.color)
                 .font(.title)
 
             HStack {
@@ -45,27 +50,27 @@ struct ConfigurationView: View {
                     .frame(width: 60, height: 40)
                     .border(.primary, width: 2)
 
-                TextField("Color Hex:", text: $colorViewModel.pickedColor)
+                TextField(Strings.colorHex, text: $colorViewModel.pickedColor)
             }.padding(.horizontal)
         }
     }
 
     var iconAndIconSizeSelectorView: some View {
         GroupBox {
-            Text("Icon")
+            Text(Strings.icon)
                 .font(.title)
 
             HStack {
-                Image(nsImage: NSImage(data: pickedImageData ?? Data()) ?? NSImage())
+                Image(nsImage: NSImage(data: pickedIconImageData ?? Data()) ?? NSImage())
                     .resizable()
                     .scaledToFit()
                     .frame(width: 60, height: 60)
                     .border(.primary, width: 2)
                     .padding(.horizontal)
 
-                Button("Select Icon") {
+                Button(Strings.selectIcon) {
                     let openPanel = NSOpenPanel()
-                    openPanel.prompt = "Select File"
+                    openPanel.prompt = Strings.selectFile
                     openPanel.allowsMultipleSelection = false
                     openPanel.canChooseDirectories = false
                     openPanel.canCreateDirectories = false
@@ -75,7 +80,7 @@ struct ConfigurationView: View {
                         if result.rawValue == NSApplication.ModalResponse.OK.rawValue {
                             if let openPanelURL = openPanel.url {
                                 if let imageData = try? Data(contentsOf: openPanelURL) {
-                                    pickedImageData = imageData
+                                    pickedIconImageData = imageData
                                 }
                             }
                         }
@@ -83,19 +88,19 @@ struct ConfigurationView: View {
                 }
                 .padding(.horizontal)
 
-                if NSImage(data: pickedImageData ?? Data()) != nil {
+                if NSImage(data: pickedIconImageData ?? Data()) != nil {
                     Button(role: .destructive, action: {
-                        configurationHelper.deleteIcon()
-                        pickedImageData = nil
+                        configurationHelper.deleteIconData()
+                        pickedIconImageData = nil
                     }, label: {
-                        Image(systemName: "trash")
+                        Image(systemName: ImageConstants.trash)
                     })
                 }
 
                 Spacer()
             }
 
-            if NSImage(data: pickedImageData ?? Data()) != nil {
+            if NSImage(data: pickedIconImageData ?? Data()) != nil {
                 Slider(value: $iconSize, in: 10...100)
                     .padding(.horizontal)
             }
@@ -107,7 +112,7 @@ struct ConfigurationView: View {
             if let image = QRCodeGenerator.previewConfigQRCode(
                 content: "www.google.com",
                 tintColor: NSColor(fromHex: colorViewModel.pickedColor),
-                logo: NSImage(data: pickedImageData ?? Data()),
+                logo: NSImage(data: pickedIconImageData ?? Data()),
                 iconSize: NSSize(width: iconSize, height: iconSize)
             ) {
                 Image(nsImage: image)
@@ -124,23 +129,25 @@ struct ConfigurationView: View {
         GroupBox {
             HStack {
                 Button(role: .cancel) {
+                    qrCodeViewModel?.shouldUpdateURL.toggle()
+
                     showingSettings = false
                 } label: {
-                    Text("Cancel")
+                    Text(Strings.cancel)
                 }
                 .padding()
                 
                 Spacer()
                 
-                Button("Save") {
-                    configurationHelper.saveIconData(pickedImageData)
+                Button(Strings.save) {
+                    configurationHelper.saveIconData(pickedIconImageData)
                     configurationHelper.saveColor(colorViewModel.pickedColor)
                     configurationHelper.saveIconSize(NSSize(width: iconSize, height: iconSize))
-                    showingSettings = false
                     
-                    if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
-                        appDelegate.qrCodeViewModel.reset()
-                    }
+                    qrCodeViewModel?.shouldUpdateURL.toggle()
+                    qrCodeViewModel?.forceRefresh()
+                    
+                    showingSettings = false
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()

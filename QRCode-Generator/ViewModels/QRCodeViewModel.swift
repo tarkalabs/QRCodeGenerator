@@ -13,6 +13,7 @@ class QRCodeViewModel: ObservableObject {
     var isSuccess = false
     let historyManager = HistoryViewModel()
     var lastValidURL: String?
+    var shouldUpdateURL = true
 
     init() {
         refresh()
@@ -21,22 +22,19 @@ class QRCodeViewModel: ObservableObject {
     func refresh() {
         let urlString = NSPasteboardHelper.getRecentURLContent()
 
-        if lastValidURL != urlString {
+        if lastValidURL != urlString, urlString.isValidURL, shouldUpdateURL {
             qrCodeImageData = getQRCodeImage(urlString)
         }
     }
-    
-    func reset() {
-        lastValidURL = nil
+
+    func forceRefresh() {
+        if let lastValidURL {
+            qrCodeImageData = getQRCodeImage(lastValidURL)
+        }
     }
 
     private func getQRCodeImage(_ content: String) -> Data? {
         isSuccess = false
-
-        guard content.isValidURL else {
-            lastValidURL = nil
-            return nil
-        }
 
         lastValidURL = content
 

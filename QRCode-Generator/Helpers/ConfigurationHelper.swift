@@ -16,7 +16,7 @@ class ConfigurationHelper {
     private var colorPath: URL? {
         FileManager.sharedContainerURL?.appendingPathComponent(colorFileName)
     }
-
+    
     private var imagePath: URL? {
         FileManager.sharedContainerURL?.appendingPathComponent(iconImageName)
     }
@@ -25,54 +25,43 @@ class ConfigurationHelper {
         FileManager.sharedContainerURL?.appendingPathComponent(iconSize)
     }
     
-    func deleteIcon() {
+    //MARK: - Icon Color
+    func getColor() -> String {
+        var colorString = ""
+        
+        guard let colorPath else {
+            return colorString
+        }
+
+        do {
+            colorString = try String(contentsOf: colorPath)
+        } catch {
+            print (error)
+        }
+        
+        return colorString
+    }
+
+    func saveColor(_ color: String) {
+        guard let colorPath else {
+            return
+        }
+
+        do {
+            try color.write(to: colorPath, atomically: true, encoding: .utf8)
+        } catch {
+            print (error)
+        }
+    }
+    
+    //MARK: - Icon Image Data
+    func deleteIconData() {
         guard let imagePath else {
             return
         }
         
         do {
             try FileManager.default.removeItem(at: imagePath)
-        } catch {
-            print (error)
-        }
-    }
-    
-    func saveIconSize(_ size: NSSize) {
-        guard let iconSizePath else {
-            return
-        }
-        
-        do {
-            try (NSStringFromSize(size) as String).debugDescription.write(to: iconSizePath, atomically: true, encoding: .utf8)
-        } catch {
-            print(error)
-        }
-    }
-    
-    func getIconSize() -> NSSize {
-        var iconSize = NSSize()
-        
-        guard let iconSizePath else {
-            return iconSize
-        }
-
-        do {
-            let iconSizeString = try String(contentsOf: iconSizePath)
-            iconSize = NSSizeFromString(iconSizeString)
-        } catch {
-            print (error)
-        }
-        
-        return iconSize
-    }
-
-    func saveIconData(_ data: Data?) {
-        guard let imagePath, let data else {
-            return
-        }
-        
-        do {
-            try data.write(to: imagePath)
         } catch {
             print (error)
         }
@@ -94,31 +83,45 @@ class ConfigurationHelper {
         return iconData
     }
 
-    func saveColor(_ color: String) {
-        guard let colorPath else {
+    func saveIconData(_ data: Data?) {
+        guard let imagePath, let data else {
             return
         }
-
+        
         do {
-            try color.write(to: colorPath, atomically: true, encoding: .utf8)
+            try data.write(to: imagePath)
         } catch {
             print (error)
         }
     }
-
-    func getColor() -> String {
-        var colorString = ""
+    
+    //MARK: - Icon Size
+    func getIconSize() -> NSSize {
+        var iconSize = NSSize()
         
-        guard let colorPath else {
-            return colorString
+        guard let iconSizePath else {
+            return iconSize
         }
 
         do {
-            colorString = try String(contentsOf: colorPath)
+            let iconSizeString = try String(contentsOf: iconSizePath)
+            iconSize = NSSizeFromString(iconSizeString)
         } catch {
             print (error)
         }
         
-        return colorString
+        return iconSize
+    }
+    
+    func saveIconSize(_ size: NSSize) {
+        guard let iconSizePath else {
+            return
+        }
+        
+        do {
+            try (NSStringFromSize(size) as String).debugDescription.write(to: iconSizePath, atomically: true, encoding: .utf8)
+        } catch {
+            print(error)
+        }
     }
 }
