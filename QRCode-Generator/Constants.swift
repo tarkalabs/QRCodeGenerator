@@ -33,11 +33,8 @@ enum ImageConstants {
 
 enum Strings {
     static let cancel = "Cancel"
-    static let color = "Color"
-    static let colorHex = "Color Hex:"
     static let copyValidURL = "Please copy a valid URL"
     static let history = "History"
-    static let icon = "Icon"
     static let save = "Save"
     static let selectFile = "Select File"
     static let selectIcon = "Select Icon"

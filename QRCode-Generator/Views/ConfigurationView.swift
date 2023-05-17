@@ -38,28 +38,19 @@ struct ConfigurationView: View {
         }
         .frame(width: 320)
     }
-
+    
     var colorPickerView: some View {
         GroupBox {
-            Text(Strings.color)
-                .font(.title)
-
             HStack {
-                RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
-                    .fill(Color(nsColor: NSColor(fromHex: colorViewModel.pickedColor)))
-                    .frame(width: 60, height: 40)
-                    .border(.primary, width: 2)
-
-                TextField(Strings.colorHex, text: $colorViewModel.pickedColor)
+                ColorPicker("Pick color for QR Code", selection: $colorViewModel.pickedColor)
+                
+                Spacer()
             }.padding(.horizontal)
         }
     }
 
     var iconAndIconSizeSelectorView: some View {
         GroupBox {
-            Text(Strings.icon)
-                .font(.title)
-
             HStack {
                 Image(nsImage: NSImage(data: pickedIconImageData ?? Data()) ?? NSImage())
                     .resizable()
@@ -101,7 +92,7 @@ struct ConfigurationView: View {
             }
 
             if NSImage(data: pickedIconImageData ?? Data()) != nil {
-                Slider(value: $iconSize, in: 10...100)
+                Slider(value: $iconSize, in: 10...100, label: { Text("Icon Size") })
                     .padding(.horizontal)
             }
         }
@@ -111,7 +102,7 @@ struct ConfigurationView: View {
         GroupBox {
             if let image = QRCodeGenerator().previewConfigQRCode(
                 content: "www.google.com",
-                tintColor: NSColor(fromHex: colorViewModel.pickedColor),
+                tintColor: NSColor(colorViewModel.pickedColor),
                 logo: NSImage(data: pickedIconImageData ?? Data()),
                 iconSize: NSSize(width: iconSize, height: iconSize)
             ) {

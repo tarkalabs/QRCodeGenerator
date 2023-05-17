@@ -29,8 +29,8 @@ class QRCodeGenerator {
 
         let savedColor = configurationHelper.getColor()
 
-        if !savedColor.isEmpty && useConfig {
-            tintColor = NSColor(fromHex: savedColor)
+        if useConfig {
+            tintColor = NSColor(savedColor)
         }
 
         var logo = logo

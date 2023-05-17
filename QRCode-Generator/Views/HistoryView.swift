@@ -17,7 +17,7 @@ struct HistoryView: View {
         VStack(alignment: .trailing) {
             Button(action: {
                 (NSApplication.shared.delegate as? AppDelegate)?.qrCodeViewModel.shouldUpdateURL.toggle()
-                
+
                 showingHistory = false
             }, label: {
                 Image(systemName: ImageConstants.close)
@@ -49,8 +49,10 @@ struct HistoryView: View {
                             })
                             
                             Button(role: .destructive, action: {
-                                if let selectionIndex = historyViewModel.history.firstIndex(of: entry) {
-                                    historyViewModel.delete(selectionIndex)
+                                withAnimation {
+                                    if let selectionIndex = historyViewModel.history.firstIndex(of: entry) {
+                                        historyViewModel.delete(selectionIndex)
+                                    }
                                 }
                             }, label: {
                                 Image(systemName: ImageConstants.trash)
@@ -60,9 +62,9 @@ struct HistoryView: View {
                         if let currentPreviewURL,
                            let qrCodeImage = QRCodeGenerator().getQRCodeImage(content: currentPreviewURL),
                            currentPreviewURL == entry {
-                            
+
                             Divider()
-                            
+
                             Image(nsImage: qrCodeImage)
                                 .resizable()
                                 .interpolation(.none)

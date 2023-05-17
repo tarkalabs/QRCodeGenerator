@@ -49,12 +49,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         true
     }
+    
+    func updateColor() {
+        popover.contentViewController?.view.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
+    }
 
     private func setupMacMenu() {
         popover.animates = true
         popover.behavior = .transient
 
         popover.contentViewController = NSHostingController(rootView: QRCodeView(viewModel: qrCodeViewModel))
+        updateColor()
         popover.contentViewController?.view.window?.makeKey()
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)

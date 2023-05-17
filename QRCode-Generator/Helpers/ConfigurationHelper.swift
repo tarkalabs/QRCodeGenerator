@@ -6,7 +6,7 @@
 //
 
 import Combine
-import Foundation
+import SwiftUI
 
 class ConfigurationHelper {
     private let colorFileName = "Color.txt"
@@ -26,11 +26,11 @@ class ConfigurationHelper {
     }
     
     //MARK: - Icon Color
-    func getColor() -> String {
+    func getColor() -> Color {
         var colorString = ""
         
         guard let colorPath else {
-            return colorString
+            return Color.black
         }
 
         do {
@@ -38,17 +38,17 @@ class ConfigurationHelper {
         } catch {
             print (error)
         }
-        
-        return colorString
+
+        return Color(NSColor(fromHex: colorString))
     }
 
-    func saveColor(_ color: String) {
+    func saveColor(_ color: Color) {
         guard let colorPath else {
             return
         }
 
         do {
-            try color.write(to: colorPath, atomically: true, encoding: .utf8)
+            try NSColor(color).hexString.write(to: colorPath, atomically: true, encoding: .utf8)
         } catch {
             print (error)
         }

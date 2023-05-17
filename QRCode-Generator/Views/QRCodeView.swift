@@ -12,6 +12,7 @@ struct QRCodeView: View {
     @ObservedObject var viewModel: QRCodeViewModel
     @State var showingHistory = false
     @State var showingSettings = false
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack(alignment: .center) {
@@ -80,5 +81,8 @@ struct QRCodeView: View {
             }
         }
         .frame(width: 320, height: 400)
+        .onChange(of: colorScheme) { newValue in
+            (NSApplication.shared.delegate as? AppDelegate)?.updateColor()
+        }
     }
 }
