@@ -29,10 +29,17 @@ struct QRCodeView: View {
                     .resizable()
                     .interpolation(.none)
                     .scaledToFit()
+                    .contextMenu {
+                        Button {
+                            OpenPanelManager.showPanel(image: qrCodeImage, url: viewModel.lastValidURL ?? "")
+                        } label: {
+                            Label("Save", systemImage: "square.and.arrow.down")
+                        }
+                    }
                     .onDrag {
                         TemporaryQRCodeExporter().exportQRCodeWithString(viewModel.lastValidURL ?? "")
                                     
-                        return NSItemProvider(item: FileManager.temporaryExportPath as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
+                        return NSItemProvider(item: FileManager.getExportPath(viewModel.lastValidURL ?? "") as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
                     }
             }
             

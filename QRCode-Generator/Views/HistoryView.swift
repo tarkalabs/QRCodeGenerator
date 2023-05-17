@@ -68,9 +68,18 @@ struct HistoryView: View {
                                 .interpolation(.none)
                                 .scaledToFit()
                                 .onDrag {
-                                    TemporaryQRCodeExporter().exportQRCodeImage(qrCodeImage)
+                                    TemporaryQRCodeExporter().exportQRCodeImage(qrCodeImage, currentPreviewURL)
                                     
-                                    return NSItemProvider(item: FileManager.temporaryExportPath as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
+                                    return NSItemProvider(item: FileManager.getExportPath(currentPreviewURL) as NSSecureCoding, typeIdentifier: UTType.fileURL.identifier)
+                                }
+                                .contextMenu {
+                                    Button {
+                                        TemporaryQRCodeExporter().exportQRCodeImage(qrCodeImage, currentPreviewURL)
+                                        
+                                        OpenPanelManager.showPanel(image: qrCodeImage, url: currentPreviewURL)
+                                    } label: {
+                                        Label("Save", systemImage: "square.and.arrow.down")
+                                    }
                                 }
                         }
                     }

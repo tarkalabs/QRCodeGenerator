@@ -12,6 +12,8 @@
 		ED0EC66829DC050A00226C3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66729DC050A00226C3C /* Constants.swift */; };
 		ED0EC66C29DC1BA700226C3C /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */; };
 		ED0EC66E29DC311800226C3C /* String+IsValidColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EC66D29DC311800226C3C /* String+IsValidColor.swift */; };
+		ED203B382A14A15F00314C9D /* String+GetFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED203B372A14A15F00314C9D /* String+GetFileName.swift */; };
+		ED203B3A2A14DD9800314C9D /* OpenPanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED203B392A14DD9800314C9D /* OpenPanelManager.swift */; };
 		ED42846E29C9CC4F00AD8DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */; };
 		ED42847229C9CC4F00AD8DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED42847129C9CC4F00AD8DCA /* Assets.xcassets */; };
 		ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42847C29C9CE0E00AD8DCA /* QRCodeView.swift */; };
@@ -38,6 +40,8 @@
 		ED0EC66729DC050A00226C3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED0EC66B29DC1BA700226C3C /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
 		ED0EC66D29DC311800226C3C /* String+IsValidColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidColor.swift"; sourceTree = "<group>"; };
+		ED203B372A14A15F00314C9D /* String+GetFileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetFileName.swift"; sourceTree = "<group>"; };
+		ED203B392A14DD9800314C9D /* OpenPanelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPanelManager.swift; sourceTree = "<group>"; };
 		ED42846A29C9CC4F00AD8DCA /* QRCode-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QRCode-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED42846D29C9CC4F00AD8DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED42847129C9CC4F00AD8DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				EDBB6EC929D2E93600A37F1C /* NSImage+SavePNG.swift */,
 				ED0EC66D29DC311800226C3C /* String+IsValidColor.swift */,
 				ED42848029C9CE6200AD8DCA /* String+IsValidURL.swift */,
+				ED203B372A14A15F00314C9D /* String+GetFileName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			children = (
 				EDBB6ED929D325AF00A37F1C /* ConfigurationHelper.swift */,
 				EDBB6ED129D2EAF300A37F1C /* NSPasteboardHelper.swift */,
+				ED203B392A14DD9800314C9D /* OpenPanelManager.swift */,
 				ED0EC66329DC000D00226C3C /* TemporaryQRCodeExporter.swift */,
 				EDBB6F0129D4082A00A37F1C /* TimerManager.swift */,
 				EDBB6ECF29D2E9E000A37F1C /* QRCodeGenerator.swift */,
@@ -223,6 +229,7 @@
 				EDBB6ECA29D2E93600A37F1C /* NSImage+SavePNG.swift in Sources */,
 				ED0EC66C29DC1BA700226C3C /* ColorViewModel.swift in Sources */,
 				EDBB6EDE29D326E000A37F1C /* NSColor+HexString.swift in Sources */,
+				ED203B3A2A14DD9800314C9D /* OpenPanelManager.swift in Sources */,
 				EDBB6F0229D4082A00A37F1C /* TimerManager.swift in Sources */,
 				ED0EC66E29DC311800226C3C /* String+IsValidColor.swift in Sources */,
 				EDBB6ED829D2F20400A37F1C /* ConfigurationView.swift in Sources */,
@@ -235,6 +242,7 @@
 				EDBB6ECE29D2E9C700A37F1C /* FileManager+SharedContainer.swift in Sources */,
 				EDBB6ED029D2E9E000A37F1C /* QRCodeGenerator.swift in Sources */,
 				ED42847D29C9CE0E00AD8DCA /* QRCodeView.swift in Sources */,
+				ED203B382A14A15F00314C9D /* String+GetFileName.swift in Sources */,
 				ED42847F29C9CE4800AD8DCA /* QRCodeViewModel.swift in Sources */,
 				ED0EC66829DC050A00226C3C /* Constants.swift in Sources */,
 				EDBB6EDC29D325DC00A37F1C /* CIImage+GetTintWithIcon.swift in Sources */,

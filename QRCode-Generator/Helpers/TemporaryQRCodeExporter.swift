@@ -11,15 +11,15 @@ import Cocoa
 class TemporaryQRCodeExporter {
     func exportQRCodeWithString(_ content: String) {
         do {
-            try QRCodeGenerator().getQRCodeImage(content: content)?.savePngTo(url: FileManager.temporaryExportPath)
+            try QRCodeGenerator().getQRCodeImage(content: content)?.savePngTo(url: FileManager.getExportPath(content))
         } catch {
             print(error)
         }
     }
 
-    func exportQRCodeImage(_ content: NSImage) {
+    func exportQRCodeImage(_ content: NSImage, _ url: String) {
         do {
-            try content.savePngTo(url: FileManager.temporaryExportPath)
+            try content.savePngTo(url: FileManager.getExportPath(url))
         } catch {
             print(error)
         }
