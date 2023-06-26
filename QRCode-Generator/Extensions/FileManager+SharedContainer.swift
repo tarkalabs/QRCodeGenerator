@@ -8,7 +8,7 @@
 import Foundation
 
 extension FileManager {
-    private static let appGroupName = "com.tarka.QRCode-Generator"
+    private static let appGroupName = "546C62BX57.com.tarka.QR-Genie"
 
     static var sharedContainerURL: URL? {
         FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupName)

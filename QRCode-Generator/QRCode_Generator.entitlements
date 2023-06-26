@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>com.tarka.QRCode-Generator</string>
+		<string>546C62BX57.com.tarka.QR-Genie</string>
 	</array>
 	<key>com.apple.security.files.user-selected.read-write</key>
 	<true/>
